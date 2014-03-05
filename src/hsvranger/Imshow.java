@@ -75,8 +75,10 @@ public class Imshow {
 			label.updateUI();
 			Window.setVisible(true);
 		} catch (Exception e) {
-			e.printStackTrace();
+			e.printStackTrace();   
+                        
+                        
 		}
-	}
+	} 
 
 }

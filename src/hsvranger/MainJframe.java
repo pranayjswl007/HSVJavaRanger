@@ -271,8 +271,8 @@ public class MainJframe extends javax.swing.JFrame {
 
     private void hminSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_hminSlider1StateChanged
         // TODO add your handling code here:
-        hmin = hminSlider1.getValue();
-        hmintextfield1.setText("" + hmin);
+        hmin = hminSlider1.getValue(); 
+        hmintextfield1.setText("" + hmin);  
 
 
     }//GEN-LAST:event_hminSlider1StateChanged
