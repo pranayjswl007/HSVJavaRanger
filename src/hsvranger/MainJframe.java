@@ -16,6 +16,7 @@ import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfByte;
 import org.opencv.core.Scalar;
+import org.opencv.core.Size;
 import org.opencv.highgui.Highgui;
 import org.opencv.highgui.VideoCapture;
 import org.opencv.imgproc.Imgproc;
@@ -26,7 +27,7 @@ import org.opencv.imgproc.Imgproc;
  */
 public class MainJframe extends javax.swing.JFrame {
 
-    int hmin, hmax, smin, smax, vmin, vmax;
+    int hmin, hmax=180, smin, smax=255, vmin, vmax=255;
     Mat source = new Mat(), hsv = new Mat();
     private ImageIcon imageico;
     MatOfByte matOfByte = new MatOfByte();
@@ -380,9 +381,15 @@ public class MainJframe extends javax.swing.JFrame {
             Scalar hsvMin = new Scalar(hmin, smin, vmin);
             Scalar hsvMax = new Scalar(hmax, smax, vmax);
             Core.inRange(source, hsvMin, hsvMax, hsv);
+            Imgproc.GaussianBlur(hsv, hsv, new Size(5,5), 0);
             Core.flip(hsv, hsv, +1);
+            
+//            Imgproc.erode(hsv, hsv, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(2, 2)));
+//
+//            Imgproc.dilate(hsv, hsv, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(2, 2)));
 
-
+        System.out.println(hsvMin);
+        System.out.println(hsvMax);
 
             i.showImage(hsv);
 
